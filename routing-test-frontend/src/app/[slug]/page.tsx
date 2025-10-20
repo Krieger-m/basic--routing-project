@@ -1,0 +1,46 @@
+import styles from "../page.module.css";
+
+
+
+interface DynamicPageProps{
+    params: Promise<{ slug: string }>;
+}
+
+
+async function dynamicPageLoader(slug: string){
+
+  const path = '/api/pages';
+  const BASE_URL = 'http://localhost:1337';
+  const url = new URL(path,BASE_URL); 
+
+
+  url.search = new URLSearchParams({
+    'filters[slug][$eq]': slug,
+  }).toString();
+
+  const response = await fetch(url.href);
+  const data = await response.json();
+
+  // console.log(data);
+  return { ...data.data[0]};
+}
+
+export default async function DynamicPage({
+  params,
+}: DynamicPageProps) {
+    
+  const slug = (await params).slug
+
+  const data = await dynamicPageLoader(slug);
+
+//   console.log(data)
+//   console.log(slug)
+ 
+  return (
+    <div className={styles.page}>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
+
+    </div>
+  )
+}
