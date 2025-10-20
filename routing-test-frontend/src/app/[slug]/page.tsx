@@ -33,8 +33,8 @@ export default async function DynamicPage({
 
   const data = await dynamicPageLoader(slug);
 
-    console.log(data);
-    console.log(slug);
+    // console.log(data);
+    // console.log(slug);
  
   return (
     <div className={styles.page}>
