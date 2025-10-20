@@ -22,7 +22,7 @@ async function dynamicPageLoader(slug: string){
   const data = await response.json();
 
   // console.log(data);
-  return { ...data.data[0]};    // ...data.data[0] because of the received datastructure. can be seen and tested using the console.logs below in DynamicPage()
+  return { ...data.data[0]};    // ...data.data[0] because of the received datastructure. can be seen and tested using the console.logs above here and below in DynamicPage()
 }
 
 export default async function DynamicPage({
@@ -33,8 +33,8 @@ export default async function DynamicPage({
 
   const data = await dynamicPageLoader(slug);
 
-  //   console.log(data);
-  //   console.log(slug);
+    console.log(data);
+    console.log(slug);
  
   return (
     <div className={styles.page}>
