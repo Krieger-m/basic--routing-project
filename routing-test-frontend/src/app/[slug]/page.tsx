@@ -7,6 +7,7 @@ interface DynamicPageProps{
 }
 
 
+
 async function dynamicPageLoader(slug: string){
 
   const path = '/api/pages';
@@ -24,6 +25,8 @@ async function dynamicPageLoader(slug: string){
   // console.log(data);
   return { ...data.data[0]};    // ...data.data[0] because of the received datastructure. data needs to be destructured like seen here to be handled efficiently. can be seen and tested using the console.logs above here and below in DynamicPage()
 }
+
+
 
 export default async function DynamicPage({
   params,
