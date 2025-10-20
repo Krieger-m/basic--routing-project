@@ -3,7 +3,7 @@ import styles from "../page.module.css";
 
 
 interface DynamicPageProps{
-    params: Promise<{ slug: string }>;
+    params: Promise<{ slug: string }>;  // default from nextjs docs https://nextjs.org/docs/app/getting-started/layouts-and-pages#creating-a-dynamic-segment
 }
 
 
@@ -17,7 +17,7 @@ async function dynamicPageLoader(slug: string){
 
   url.search = new URLSearchParams({
     'filters[slug][$eq]': slug,
-  }).toString();    // filters results by slug 
+  }).toString();    // filters results by slug // 
 
   const response = await fetch(url.href);
   const data = await response.json();
