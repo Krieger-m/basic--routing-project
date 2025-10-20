@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface LinkProps{
+interface LinkProps{    // linkprops according to the structure of the link-element in the strapi-api
     label: string;
     description: string;
     href: string;
@@ -15,8 +15,8 @@ export const Header =({
 }: HeaderProps)=>{
     return (
         <div>
-            {navLinks.map((link)=>(
-                <Link href={link.href} key={link.href}>
+            {navLinks.map((link)=>(     // renders links according to the mapped link-elements
+                <Link href={link.href} key={link.href}>    
                     <p>{link.label}</p>
                     <br/>
                 </Link>
