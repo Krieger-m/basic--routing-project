@@ -28,7 +28,7 @@ async function dynamicPageLoader(slug: string){
 
 
 
-export default async function DynamicPage({
+export default async function DynamicRoute({
   params,
 }: DynamicPageProps) {
 
